@@ -48,7 +48,7 @@ export default function Header() {
         <Toolbar>
           <DropDownMenu menuItems={menuItems} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            WRKSHPS
+            wörkshop
           </Typography>
           {auth && (
             <div>
