@@ -24,7 +24,6 @@ function App() {
       <div className="App">
         <Router>
           <Authentication />
-          <Footer />
         </Router>
       </div>
     );
