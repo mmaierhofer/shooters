@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Footer from "./layouts/Footer";
 import Header from "./layouts/Header";
 import Main from "./layouts/Main";
