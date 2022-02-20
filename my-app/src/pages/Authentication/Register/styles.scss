@@ -1,8 +1,8 @@
 .auth-background {
   width: 100vw;
   height: 100vh;
+  background-color: salmon;
   background: url("../../../assets/origami-bg.jpg") repeat-x 0 0;
-  background-size: cover;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -54,16 +54,16 @@
       font-weight: bold;
     }
 
-    .login-form {
+    .auth-form {
       display: flex;
       flex-direction: column;
       margin-top: 40px;
-      height: 350px;
+      min-height: 450px;
       justify-content: space-around;
 
       .auth-info {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
 
         a {

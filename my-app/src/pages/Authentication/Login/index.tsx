@@ -5,12 +5,20 @@ import {
   FormControlLabel,
   TextField,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 import GoogleIcon from "@mui/icons-material/Google";
+import { UserContext } from "../../../contexts/userContext";
 
-export default function Login() {
+interface props {
+  setAuth: Function;
+}
+
+export default function Login({ setAuth }: props) {
+  const auth = useContext(UserContext);
+
+  console.log(auth);
   return (
     <>
       <div className="auth-background">
@@ -25,7 +33,7 @@ export default function Login() {
                 </div>
               </Button>
             </div>
-            <div className="auth-form">
+            <div className="login-form">
               <TextField id="standard-basic" label="Email" variant="outlined" />
               <TextField
                 id="standard-basic"
@@ -41,7 +49,12 @@ export default function Login() {
 
                 <Link to="/forgot-password">Forgot Password?</Link>
               </div>
-              <Button variant="contained">Log In</Button>
+              <Button
+                variant="contained"
+                onClick={(e) => setAuth({ user: { isLoggedIn: true } })}
+              >
+                Log In
+              </Button>
               <div className="auth-register">
                 <div>
                   Not registered yet?{" "}
