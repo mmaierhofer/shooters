@@ -8,7 +8,7 @@ import Authentication from "./pages/Authentication";
 import { UserContext } from "./contexts/userContext";
 
 function App() {
-  const isLoggedIn: boolean = false;
+  const isLoggedIn: boolean = true;
 
   const [auth, setAuth] = useState({ user: { isLoggedIn: false } });
 
