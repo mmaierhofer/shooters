@@ -29,7 +29,7 @@ export default function Login({ setAuth }: props) {
               <Button variant="contained">
                 <div>
                   <GoogleIcon />
-                  Sign in with Google
+                  Sign in with Google!
                 </div>
               </Button>
             </div>
