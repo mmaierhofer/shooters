@@ -51,7 +51,7 @@ export default function Login({ setAuth }: props) {
               </div>
               <Button
                 variant="contained"
-                onClick={(e) => setAuth({ user: { isLoggedIn: false } })}
+                onClick={(e) => setAuth({ user: { isLoggedIn: true } })}
               >
                 Log In
               </Button>
