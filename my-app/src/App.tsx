@@ -39,23 +39,19 @@ function App() {
   if (auth) {
     return (
       <div className="App">
-        <UserContext.Provider value={auth}>
-          <Router>
-            <Header />
-            <Main />
-            <Footer />
-          </Router>
-        </UserContext.Provider>
+        <Router>
+          <Header />
+          <Main />
+          <Footer />
+        </Router>
       </div>
     );
   } else {
     return (
       <div className="App">
-        <UserContext.Provider value={auth}>
-          <Router>
-            <Authentication />
-          </Router>
-        </UserContext.Provider>
+        <Router>
+          <Authentication />
+        </Router>
       </div>
     );
   }
