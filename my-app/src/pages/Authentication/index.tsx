@@ -7,13 +7,13 @@ interface props {
   setAuth: Function;
 }
 
-export default function Authentication({ setAuth }: props) {
+export default function Authentication() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login setAuth={setAuth} />} />
-        <Route path="/register" element={<Register setAuth={setAuth} />} />
-        <Route path="/" element={<Login setAuth={setAuth} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </>
   );

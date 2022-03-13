@@ -14,7 +14,7 @@ interface props {
   setAuth: Function;
 }
 
-export default function Register({ setAuth }: props) {
+export default function Register() {
   return (
     <>
       <div className="auth-background">
@@ -50,12 +50,7 @@ export default function Register({ setAuth }: props) {
                   label=" Agree to the Terms & Conditions"
                 />
               </div>
-              <Button
-                variant="contained"
-                onClick={(e) => setAuth({ user: { isLoggedIn: true } })}
-              >
-                Log In
-              </Button>
+              <Button variant="contained">Log In</Button>
               <div className="auth-register">
                 <div>
                   Already have an Account? <Link to="/login">Sign in</Link>

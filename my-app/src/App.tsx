@@ -9,10 +9,20 @@ import { UserContext } from "./contexts/userContext";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-function App() {
-  const isLoggedIn: boolean = true;
+interface users {
+  localId: string;
+  email: string;
+  emailVerified: boolean;
+  lastRefreshAt: number;
+}
 
-  const [auth, setAuth] = useState({ user: { isLoggedIn: false } });
+interface auth {
+  kind: string;
+  users: Array<users>;
+}
+
+function App() {
+  const auth = getAuth();
   // TODO: Replace the following with your app's Firebase project configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCfzdCzDKA4q-eBE_fbvMDG9GcVVVCY2TU",
@@ -26,7 +36,7 @@ function App() {
 
   const app = initializeApp(firebaseConfig);
 
-  if (auth.user.isLoggedIn) {
+  if (auth) {
     return (
       <div className="App">
         <UserContext.Provider value={auth}>
@@ -43,7 +53,7 @@ function App() {
       <div className="App">
         <UserContext.Provider value={auth}>
           <Router>
-            <Authentication setAuth={setAuth} />
+            <Authentication />
           </Router>
         </UserContext.Provider>
       </div>

@@ -1,3 +1,5 @@
 import React from "react";
 
-export const UserContext = React.createContext({ user: { isLoggedIn: false } });
+export const UserContext = React.createContext({
+  users: [],
+});

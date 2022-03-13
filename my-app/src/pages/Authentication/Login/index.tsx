@@ -11,11 +11,7 @@ import "./styles.scss";
 import GoogleIcon from "@mui/icons-material/Google";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-interface props {
-  setAuth: Function;
-}
-
-export default function Login({ setAuth }: props) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
