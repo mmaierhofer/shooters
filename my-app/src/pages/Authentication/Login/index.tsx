@@ -5,18 +5,33 @@ import {
   FormControlLabel,
   TextField,
 } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 import GoogleIcon from "@mui/icons-material/Google";
-import { UserContext } from "../../../contexts/userContext";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 interface props {
   setAuth: Function;
 }
 
 export default function Login({ setAuth }: props) {
-  const auth = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const auth = getAuth();
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
 
   console.log(auth);
   return (
@@ -34,12 +49,18 @@ export default function Login({ setAuth }: props) {
               </Button>
             </div>
             <div className="login-form">
-              <TextField id="standard-basic" label="Email" variant="outlined" />
+              <TextField
+                id="standard-basic"
+                label="Email"
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <TextField
                 id="standard-basic"
                 label="Password"
                 variant="outlined"
                 type={"password"}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <div className="auth-info">
                 <FormControlLabel
@@ -49,10 +70,7 @@ export default function Login({ setAuth }: props) {
 
                 <Link to="/forgot-password">Forgot Password?</Link>
               </div>
-              <Button
-                variant="contained"
-                onClick={(e) => setAuth({ user: { isLoggedIn: true } })}
-              >
+              <Button variant="contained" onClick={(e) => handleSignIn()}>
                 Log In
               </Button>
               <div className="auth-register">
