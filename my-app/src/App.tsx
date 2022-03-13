@@ -8,6 +8,7 @@ import Authentication from "./pages/Authentication";
 import { UserContext } from "./contexts/userContext";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { firebaseConfig } from "./config/firebase";
 
 interface users {
   localId: string;
@@ -23,20 +24,10 @@ interface auth {
 
 function App() {
   const auth = getAuth();
-  // TODO: Replace the following with your app's Firebase project configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCfzdCzDKA4q-eBE_fbvMDG9GcVVVCY2TU",
-    authDomain: "wrkshp-1289c.firebaseapp.com",
-    projectId: "wrkshp-1289c",
-    storageBucket: "wrkshp-1289c.appspot.com",
-    messagingSenderId: "544956692352",
-    appId: "1:544956692352:web:981e13ad0ce5459efeb365",
-    measurementId: "G-0VYEQVKSM3",
-  };
 
   const app = initializeApp(firebaseConfig);
 
-  if (auth) {
+  if (auth.users.length > 0) {
     return (
       <div className="App">
         <Router>
