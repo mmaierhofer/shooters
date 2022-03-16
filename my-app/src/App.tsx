@@ -23,7 +23,6 @@ interface auth {
 }
 
 function App() {
-  console.log("change");
   const auth = getAuth();
 
   const app = initializeApp(firebaseConfig);
