@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Workshops() {
+export default function Searchbar() {
   return <></>;
 }

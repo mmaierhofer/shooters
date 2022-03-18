@@ -33,7 +33,7 @@ function App() {
       <div className="App">
         <Router>
           <Header />
-          <div className="flex flex-row">
+          <div className="flex flex-row w-full h-screen pt-20 z-50">
             <Sidebar />
             <Main />
           </div>
