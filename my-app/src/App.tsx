@@ -23,9 +23,9 @@ interface auth {
 }
 
 function App() {
-  const auth = getAuth();
-
   const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth();
 
   if (auth) {
     return (
