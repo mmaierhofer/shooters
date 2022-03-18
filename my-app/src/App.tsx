@@ -9,6 +9,7 @@ import { UserContext } from "./contexts/userContext";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { firebaseConfig } from "./config/firebase";
+import Sidebar from "./layouts/Sidebar";
 
 interface users {
   localId: string;
@@ -32,7 +33,11 @@ function App() {
       <div className="App">
         <Router>
           <Header />
-          <Main />
+          <div className="flex flex-row">
+            <Sidebar />
+            <Main />
+          </div>
+
           <Footer />
         </Router>
       </div>
