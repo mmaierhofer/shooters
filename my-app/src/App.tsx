@@ -28,7 +28,9 @@ function App() {
 
   const auth = getAuth();
 
-  if (auth) {
+  console.log(auth);
+
+  if (auth.currentUser) {
     return (
       <div className="App">
         <Router>
