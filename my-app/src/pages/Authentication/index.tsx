@@ -4,7 +4,7 @@ import Register from "./Register";
 import Login from "./Login";
 
 interface props {
-  setAuth: Function;
+  setUser: Function;
 }
 
 export default function Authentication() {

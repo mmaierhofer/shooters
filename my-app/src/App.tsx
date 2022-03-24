@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Footer from "./layouts/Footer";
 import Header from "./layouts/Header";
@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Authentication from "./pages/Authentication";
 import { UserContext } from "./contexts/userContext";
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAdditionalUserInfo, getAuth } from "firebase/auth";
 import { firebaseConfig } from "./config/firebase";
 import Sidebar from "./layouts/Sidebar";
 
@@ -26,11 +26,13 @@ interface auth {
 function App() {
   const app = initializeApp(firebaseConfig);
 
-  const auth = getAuth();
+  const [user, setUser]: any = useState();
 
-  console.log(auth);
+  getAuth().onAuthStateChanged(() => {
+    setUser(getAuth().currentUser);
+  });
 
-  if (auth.currentUser) {
+  if (user) {
     return (
       <div className="App">
         <Router>

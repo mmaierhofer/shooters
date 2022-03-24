@@ -29,7 +29,6 @@ export default function Login() {
       });
   };
 
-  console.log(auth);
   return (
     <>
       <div className="auth-background">

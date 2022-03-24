@@ -9,10 +9,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 import GoogleIcon from "@mui/icons-material/Google";
-
-interface props {
-  setAuth: Function;
-}
+import { getAuth } from "firebase/auth";
 
 export default function Register() {
   return (

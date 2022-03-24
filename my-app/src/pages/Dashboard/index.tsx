@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function AddWorkshopForm() {
+export default function Dashboard() {
   return <></>;
 }
